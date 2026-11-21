@@ -1,0 +1,1105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09251d">
+<title>Shyam Bihari Pan Dukan | The Taste of Tradition</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+:root{
+  --green:#09251d;
+  --deep:#061b15;
+  --lime:#c7ed82;
+  --cream:#f5f1e7;
+  --orange:#ff7958;
+  --muted:#a6b6a9;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+  background:var(--green);
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--green);
+  overflow-x:hidden;
+}
+
+button,a{-webkit-tap-highlight-color:transparent}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+/* INTRO */
+
+.intro{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:
+    radial-gradient(ellipse at 50% 40%,#174a36 0%,#09251d 48%,#04150f 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  transition:opacity 1s ease,visibility 1s;
+}
+
+.intro.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.intro-glow{
+  position:absolute;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  background:#8eea8a;
+  opacity:.09;
+  filter:blur(90px);
+  animation:glowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse{
+  to{transform:scale(1.5);opacity:.17}
+}
+
+.intro-ring{
+  position:absolute;
+  width:270px;
+  height:270px;
+  border:1px solid #c7ed8230;
+  border-radius:50%;
+  animation:spin 24s linear infinite;
+}
+
+.intro-ring:before{
+  content:"";
+  position:absolute;
+  width:8px;height:8px;
+  background:var(--lime);
+  border-radius:50%;
+  top:30px;left:25px;
+  box-shadow:0 0 18px var(--lime);
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.intro-content{
+  position:relative;
+  z-index:3;
+  text-align:center;
+  padding:25px;
+}
+
+.logo-mark{
+  width:100px;
+  height:100px;
+  margin:0 auto 28px;
+  animation:logoIn 1.4s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes logoIn{
+  from{opacity:0;transform:translateY(30px) scale(.7) rotate(-25deg)}
+  to{opacity:1;transform:none}
+}
+
+.intro-small{
+  color:var(--lime);
+  font-size:10px;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  margin-bottom:17px;
+  animation:fadeUp 1s .3s both;
+}
+
+.intro h1{
+  color:var(--cream);
+  font-family:'Playfair Display',serif;
+  font-size:clamp(37px,10vw,68px);
+  line-height:1.08;
+  font-weight:600;
+  letter-spacing:-2px;
+  animation:fadeUp 1s .5s both;
+}
+
+.intro h1 span{color:var(--lime)}
+
+.intro-tag{
+  margin-top:20px;
+  color:#c5d3c7;
+  font-size:11px;
+  letter-spacing:4px;
+  animation:fadeUp 1s .7s both;
+}
+
+.enter{
+  margin-top:48px;
+  background:var(--lime);
+  color:var(--green);
+  border:0;
+  padding:17px 34px;
+  border-radius:50px;
+  font-weight:800;
+  font-size:11px;
+  letter-spacing:2px;
+  cursor:pointer;
+  box-shadow:0 0 35px #c7ed8240;
+  animation:fadeUp 1s .9s both;
+  transition:.3s;
+}
+
+.enter:active{transform:scale(.95)}
+
+.skip{
+  display:block;
+  margin:18px auto 0;
+  background:none;
+  border:0;
+  color:#a7b7aa;
+  font-size:10px;
+  letter-spacing:2px;
+  cursor:pointer;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* FLOATING PARTICLES */
+
+.particles{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.particle{
+  position:absolute;
+  width:3px;height:3px;
+  background:#c7ed82;
+  border-radius:50%;
+  opacity:.5;
+  animation:particleFloat var(--d) linear infinite;
+}
+
+@keyframes particleFloat{
+  0%{transform:translateY(110vh) translateX(0);opacity:0}
+  15%{opacity:.6}
+  85%{opacity:.4}
+  100%{transform:translateY(-10vh) translateX(35px);opacity:0}
+}
+
+/* NAV */
+
+.nav{
+  position:absolute;
+  z-index:20;
+  top:0;left:0;width:100%;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+}
+
+.brand{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-size:18px;
+}
+
+.brand span{color:var(--lime)}
+
+.nav-link{
+  font-size:10px;
+  letter-spacing:1.5px;
+  color:var(--lime);
+  border:1px solid #c7ed8250;
+  padding:10px 16px;
+  border-radius:30px;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:740px;
+  min-height:100svh;
+  background:
+    radial-gradient(ellipse at 75% 40%,#1b553a 0%,transparent 45%),
+    linear-gradient(135deg,#09251d,#061a14);
+  color:var(--cream);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  padding:110px 8% 90px;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:450px;height:450px;
+  border:1px solid #c7ed8212;
+  border-radius:50%;
+  right:-100px;top:15%;
+  box-shadow:0 0 0 50px #c7ed8206,0 0 0 100px #c7ed8204;
+}
+
+.hero-content{
+  position:relative;
+  z-index:4;
+  max-width:590px;
+}
+
+.eyebrow{
+  color:var(--lime);
+  font-size:10px;
+  letter-spacing:4px;
+  font-weight:700;
+  margin-bottom:22px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.eyebrow:before{
+  content:"";
+  width:28px;height:1px;
+  background:var(--lime);
+}
+
+.hero h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(49px,10vw,90px);
+  line-height:.98;
+  letter-spacing:-3px;
+  font-weight:600;
+}
+
+.hero h2 span{
+  color:var(--lime);
+  font-style:italic;
+}
+
+.hero-desc{
+  max-width:390px;
+  margin-top:27px;
+  color:#b8c9bc;
+  font-size:14px;
+  line-height:1.9;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+  margin-top:34px;
+}
+
+.primary-btn,.secondary-btn{
+  display:inline-block;
+  padding:15px 24px;
+  border-radius:40px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  transition:transform .3s,background .3s;
+}
+
+.primary-btn{
+  background:var(--lime);
+  color:var(--green);
+}
+
+.secondary-btn{
+  border:1px solid #ffffff50;
+  color:white;
+}
+
+.primary-btn:active,.secondary-btn:active{
+  transform:scale(.96);
+}
+
+/* LEAVES */
+
+.leaf{
+  position:absolute;
+  width:150px;
+  height:220px;
+  pointer-events:none;
+  filter:drop-shadow(0 18px 18px #0005);
+  will-change:transform;
+}
+
+.leaf svg{width:100%;height:100%;overflow:visible}
+
+.leaf-one{
+  width:230px;
+  right:7%;
+  top:20%;
+  animation:leafFloat 7s ease-in-out infinite;
+}
+
+.leaf-two{
+  width:150px;
+  right:24%;
+  bottom:8%;
+  transform:rotate(55deg);
+  animation:leafFloatTwo 9s ease-in-out infinite;
+}
+
+.leaf-three{
+  width:95px;
+  left:5%;
+  bottom:7%;
+  opacity:.45;
+  animation:leafFloat 10s ease-in-out infinite reverse;
+}
+
+@keyframes leafFloat{
+  0%,100%{transform:translateY(0) rotate(-12deg)}
+  50%{transform:translateY(-28px) rotate(3deg)}
+}
+
+@keyframes leafFloatTwo{
+  0%,100%{transform:translateY(0) rotate(55deg)}
+  50%{transform:translateY(20px) rotate(70deg)}
+}
+
+.scroll-cue{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#a9bbaa;
+  font-size:9px;
+  letter-spacing:3px;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  gap:10px;
+}
+
+.scroll-cue:after{
+  content:"";
+  height:35px;
+  width:1px;
+  background:linear-gradient(var(--lime),transparent);
+  animation:scrollLine 1.5s infinite;
+}
+
+@keyframes scrollLine{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* GENERAL SECTIONS */
+
+section.content-section{
+  position:relative;
+  padding:110px 8%;
+  overflow:hidden;
+}
+
+.section-label{
+  font-size:10px;
+  font-weight:800;
+  color:#6e9b59;
+  letter-spacing:4px;
+  margin-bottom:17px;
+}
+
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(37px,7vw,65px);
+  line-height:1.08;
+  letter-spacing:-1.5px;
+}
+
+.section-title span{color:#729b4e}
+
+.section-desc{
+  font-size:14px;
+  line-height:1.9;
+  color:#66776b;
+  max-width:470px;
+  margin-top:20px;
+}
+
+/* STORY */
+
+.story{
+  background:var(--cream);
+  min-height:570px;
+  display:flex;
+  align-items:center;
+}
+
+.story-inner{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+}
+
+.story-stamp{
+  position:absolute;
+  right:8%;
+  top:50%;
+  transform:translateY(-50%);
+  width:180px;
+  height:180px;
+  border:1px solid #8ba77d70;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#73905f;
+  font-family:'Playfair Display',serif;
+  font-size:21px;
+  line-height:1.3;
+  transform-origin:center;
+  animation:stampRotate 25s linear infinite;
+}
+
+@keyframes stampRotate{to{rotate:360deg}}
+
+/* COLLECTION */
+
+.collection{
+  background:#e7eddd;
+}
+
+.collection .section-title{max-width:550px}
+
+.collection-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:55px;
+}
+
+.collection-card{
+  min-height:250px;
+  border-radius:24px;
+  padding:28px;
+  background:#fffdf5;
+  position:relative;
+  overflow:hidden;
+  transition:transform .4s,box-shadow .4s;
+  border:1px solid #d9e3d2;
+}
+
+.collection-card:active{
+  transform:scale(.98);
+}
+
+.collection-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  position:relative;
+  z-index:2;
+  margin-top:85px;
+}
+
+.collection-card p{
+  color:#788779;
+  font-size:12px;
+  line-height:1.7;
+  margin-top:10px;
+  position:relative;
+  z-index:2;
+}
+
+.card-number{
+  position:absolute;
+  right:20px;top:15px;
+  font-family:'Playfair Display',serif;
+  font-size:50px;
+  color:#e3ebdc;
+}
+
+.card-leaf{
+  position:absolute;
+  top:5px;left:15px;
+  width:100px;
+  opacity:.9;
+}
+
+/* GIFT */
+
+.gift{
+  background:#0c2b20;
+  color:var(--cream);
+  min-height:430px;
+  display:flex;
+  align-items:center;
+}
+
+.gift .section-desc{color:#b0c1b2}
+.gift .section-title span{color:var(--lime)}
+
+.gift-shape{
+  position:absolute;
+  right:8%;
+  top:18%;
+  width:200px;height:200px;
+  border:1px solid #c7ed8240;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--lime);
+  font-family:'Playfair Display',serif;
+  font-size:70px;
+  animation:giftPulse 4s ease-in-out infinite;
+}
+
+@keyframes giftPulse{
+  50%{transform:scale(1.08);box-shadow:0 0 60px #c7ed8218}
+}
+
+/* GALLERY */
+
+.gallery{
+  background:#f5f1e7;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:15px;
+  margin-top:45px;
+}
+
+.gallery-tile{
+  min-height:200px;
+  border-radius:20px;
+  padding:25px;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(145deg,#285b3d,#0a291e);
+  color:white;
+}
+
+.gallery-tile:nth-child(2){
+  background:linear-gradient(145deg,#b4ce8b,#476e42);
+}
+
+.gallery-tile:nth-child(3){
+  background:linear-gradient(145deg,#e78b65,#934d36);
+  grid-column:1/-1;
+  min-height:170px;
+}
+
+.gallery-tile h3{
+  font-family:'Playfair Display',serif;
+  font-size:27px;
+  position:relative;
+  z-index:2;
+}
+
+.gallery-decoration{
+  position:absolute;
+  width:140px;
+  right:15px;
+  top:5px;
+  opacity:.8;
+  animation:leafFloat 8s ease-in-out infinite;
+}
+
+/* LOCATION */
+
+.location{
+  background:#e6eddf;
+}
+
+.location-box{
+  background:#0b291f;
+  color:white;
+  padding:35px;
+  border-radius:25px;
+  margin-top:40px;
+  position:relative;
+  overflow:hidden;
+}
+
+.location-box:after{
+  content:"";
+  position:absolute;
+  width:200px;height:200px;
+  border:1px solid #c7ed8230;
+  border-radius:50%;
+  right:-40px;top:-50px;
+  box-shadow:0 0 0 35px #c7ed8208,0 0 0 70px #c7ed8205;
+}
+
+.location-box h3{
+  font-family:'Playfair Display',serif;
+  font-size:30px;
+  position:relative;
+  z-index:2;
+}
+
+.location-box p{
+  color:#b3c5b6;
+  font-size:13px;
+  margin-top:13px;
+  line-height:1.8;
+  position:relative;
+  z-index:2;
+}
+
+.location-box a{
+  display:inline-block;
+  margin-top:25px;
+  padding:13px 20px;
+  background:var(--lime);
+  color:#09251d;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:800;
+  position:relative;
+  z-index:2;
+}
+
+/* CONTACT */
+
+.contact{
+  background:#09251d;
+  color:white;
+  text-align:center;
+  padding:100px 8%;
+}
+
+.contact .section-title{
+  max-width:650px;
+  margin:auto;
+}
+
+.contact .section-desc{
+  margin:20px auto;
+  color:#a8b9aa;
+}
+
+.contact .primary-btn{margin-top:20px}
+
+footer{
+  background:#061a14;
+  color:#829588;
+  text-align:center;
+  padding:24px;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+/* SCROLL REVEALS */
+
+.reveal{
+  opacity:0;
+  transform:translateY(45px);
+  transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.left{transform:translateX(-55px)}
+.reveal.right{transform:translateX(55px)}
+.reveal.show{
+  opacity:1;
+  transform:translate(0,0);
+}
+
+.delay-1{transition-delay:.12s}
+.delay-2{transition-delay:.24s}
+.delay-3{transition-delay:.36s}
+
+/* SIDE LEAVES */
+
+.side-leaf{
+  position:absolute;
+  width:100px;
+  pointer-events:none;
+  opacity:.32;
+  z-index:1;
+  will-change:transform;
+}
+
+.side-left{left:-30px;top:30%}
+.side-right{right:-30px;top:65%}
+
+@media(max-width:700px){
+  .hero{min-height:790px;align-items:flex-start;padding-top:165px}
+  .hero-content{max-width:100%}
+  .hero h2{font-size:62px}
+  .leaf-one{width:135px;right:-8px;top:48%;opacity:.8}
+  .leaf-two{width:95px;right:25%;bottom:4%}
+  .leaf-three{width:65px}
+  .collection-grid{grid-template-columns:1fr;gap:13px}
+  .collection-card{min-height:210px}
+  .story-stamp{width:100px;height:100px;font-size:13px;right:5%;top:15%;transform:none}
+  .story-inner{max-width:100%}
+  .gift-shape{width:100px;height:100px;font-size:38px;right:8%;top:12%}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-tile{min-height:180px;padding:15px}
+  .gallery-tile h3{font-size:21px}
+  .gallery-tile:nth-child(3){min-height:150px}
+  section.content-section{padding:85px 7%}
+  .location-box{padding:27px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO SCREEN -->
+
+<div class="intro" id="intro">
+  <div class="intro-glow"></div>
+  <div class="intro-ring"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="intro-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 120" fill="none">
+        <path d="M60 105C13 79 18 29 96 12C100 67 81 94 60 105Z"
+          fill="#8bc66c" stroke="#d4f2a4" stroke-width="2"/>
+        <path d="M60 105C58 68 70 35 96 12"
+          stroke="#efffc8" stroke-width="2" stroke-linecap="round"/>
+        <path d="M60 78L37 54M68 57L84 40"
+          stroke="#efffc8" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M60 105C32 86 24 57 37 35"
+          stroke="#b4e58e" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="intro-small">A little tradition, a lot of love</div>
+    <h1>SHYAM BIHARI<br><span>PAN DUKAN</span></h1>
+    <div class="intro-tag">THE TASTE OF TRADITION</div>
+    <button class="enter" id="enter">ENTER EXPERIENCE ↗</button>
+    <button class="skip" id="skip">SKIP INTRO</button>
+  </div>
+</div>
+
+<!-- NAV -->
+
+<nav class="nav">
+  <a href="#home" class="brand">SHYAM <span>BIHARI.</span></a>
+  <a href="#contact" class="nav-link">GET IN TOUCH ↗</a>
+</nav>
+
+<!-- REUSABLE LEAF SVG -->
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="leafGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b9e58b"/>
+      <stop offset="45%" stop-color="#4e9b53"/>
+      <stop offset="100%" stop-color="#123e2a"/>
+    </linearGradient>
+    <linearGradient id="veinGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e4ffb4"/>
+      <stop offset="100%" stop-color="#4d9c57"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- HERO -->
+
+<main>
+<section class="hero" id="home">
+
+  <div class="hero-content reveal show">
+    <div class="eyebrow">WELCOME TO OUR WORLD</div>
+    <h2>A Taste<br>Of <span>Tradition.</span></h2>
+    <p class="hero-desc">
+      Discover the warmth of tradition, the charm of little moments
+      and the familiar feeling of home at Shyam Bihari Pan Dukan.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#story" class="primary-btn">DISCOVER MORE ↗</a>
+      <a href="#location" class="secondary-btn">FIND OUR SHOP</a>
+    </div>
+  </div>
+
+  <div class="leaf leaf-one">
+    <svg viewBox="0 0 160 230">
+      <path d="M80 220C-8 165 5 45 145 8C160 115 123 185 80 220Z"
+        fill="url(#leafGradient)" stroke="#c5ed91" stroke-width="1.5"/>
+      <path d="M80 220Q88 105 145 8"
+        stroke="url(#veinGradient)" stroke-width="2" fill="none"/>
+      <path d="M86 177L40 121M99 139L137 91M107 105L74 67M75 195L30 165"
+        stroke="#d3f4a2" stroke-width="1.3" opacity=".6" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="leaf leaf-two">
+    <svg viewBox="0 0 160 230">
+      <path d="M80 220C-8 165 5 45 145 8C160 115 123 185 80 220Z"
+        fill="url(#leafGradient)" stroke="#c5ed91" stroke-width="1.5"/>
+      <path d="M80 220Q88 105 145 8" stroke="#d5f4a5" stroke-width="2" fill="none"/>
+      <path d="M86 177L40 121M99 139L137 91M107 105L74 67"
+        stroke="#d3f4a2" stroke-width="1.3" opacity=".6" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="leaf leaf-three">
+    <svg viewBox="0 0 160 230">
+      <path d="M80 220C-8 165 5 45 145 8C160 115 123 185 80 220Z"
+        fill="url(#leafGradient)" stroke="#c5ed91" stroke-width="1.5"/>
+      <path d="M80 220Q88 105 145 8" stroke="#d5f4a5" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="scroll-cue">SCROLL TO EXPLORE</div>
+</section>
+
+<!-- STORY -->
+
+<section class="content-section story" id="story">
+  <svg class="side-leaf side-right" viewBox="0 0 160 230">
+    <path d="M80 220C-8 165 5 45 145 8C160 115 123 185 80 220Z"
+      fill="#4d9452"/>
+    <path d="M80 220Q88 105 145 8" stroke="#c7ed82" stroke-width="2" fill="none"/>
+  </svg>
+
+  <div class="story-inner reveal">
+    <div class="section-label">01 — OUR STORY</div>
+    <h2 class="section-title">More than a shop.<br><span>A feeling.</span></h2>
+    <p class="section-desc">
+      Some places are remembered not just for what they offer,
+      but for the memories they create. Shyam Bihari Pan Dukan
+      celebrates the charm of familiar flavours, everyday essentials
+      and the warmth of local tradition.
+    </p>
+  </div>
+
+  <div class="story-stamp">ROOTED IN<br>TRADITION</div>
+</section>
+
+<!-- COLLECTION -->
+
+<section class="content-section collection" id="collection">
+  <div class="reveal">
+    <div class="section-label">02 — OUR COLLECTION</div>
+    <h2 class="section-title">Little things.<br><span>Lovely moments.</span></h2>
+    <p class="section-desc">
+      Explore a selection of everyday essentials and delightful treats.
+    </p>
+  </div>
+
+  <div class="collection-grid">
+    <article class="collection-card reveal delay-1">
+      <span class="card-number">01</span>
+      <svg class="card-leaf" viewBox="0 0 160 230">
+        <path d="M80 220C-8 165 5 45 145 8C160 115 123 185 80 220Z" fill="#7bb36a"/>
+        <path d="M80 220Q88 105 145 8" stroke="#e4f6c4" stroke-width="2" fill="none"/>
+      </svg>
+      <h3>Tobacco-free Paan</h3>
+      <p>A traditional flavour experience, without tobacco.</p>
+    </article>
+
+    <article class="collection-card reveal delay-2">
+      <span class="card-number">02</span>
+      <h3>Everyday Essentials</h3>
+      <p>Useful little things for your everyday needs.</p>
+    </article>
+
+    <article class="collection-card reveal delay-3">
+      <span class="card-number">03</span>
+      <h3>Fragrance Corner</h3>
+      <p>Explore our everyday fragrance selection.</p>
+    </article>
+  </div>
+</section>
+
+<!-- GIFT CORNER -->
+
+<section class="content-section gift" id="gift">
+  <div class="reveal">
+    <div class="section-label">03 — GIFT CORNER</div>
+    <h2 class="section-title">Small gifts.<br><span>Big smiles.</span></h2>
+    <p class="section-desc">
+      Find little surprises and thoughtful gift ideas
+      to make ordinary moments special.
+    </p>
+  </div>
+  <div class="gift-shape">GIFT</div>
+</section>
+
+<!-- GALLERY -->
+
+<section class="content-section gallery" id="gallery">
+  <div class="reveal">
+    <div class="section-label">04 — THE VISUAL DIARY</div>
+    <h2 class="section-title">A glimpse of<br><span>our world.</span></h2>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-tile reveal delay-1">
+      <h3>Tradition<br>meets today.</h3>
+      <svg class="gallery-decoration" viewBox="0 0 160 230">
+        <path d="M80 220C-8 165 5 45 145 8C160 115 123 185 80 220Z"
+          fill="#b9e58b"/>
+        <path d="M80 220Q88 105 145 8" stroke="#e4ffc5" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="gallery-tile reveal delay-2">
+      <h3>Everyday<br>moments.</h3>
+    </div>
+    <div class="gallery-tile reveal delay-3">
+      <h3>Made with a touch of tradition.</h3>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+
+<section class="content-section location" id="location">
+  <div class="reveal">
+    <div class="section-label">05 — FIND US</div>
+    <h2 class="section-title">Right around<br><span>the corner.</span></h2>
+    <p class="section-desc">
+      Come say hello. We would love to welcome you.
+    </p>
+  </div>
+
+  <div class="location-box reveal">
+    <h3>Shyam Bihari Pan Dukan</h3>
+    <p>Station Road, Bagaha 2<br>West Champaran, Bihar, India</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Shyam+Bihari+Pan+Dukan+Station+Road+Bagaha+2+Bihar"
+       target="_blank" rel="noopener">OPEN GOOGLE MAPS ↗</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="reveal">
+    <div class="section-label">06 — SAY HELLO</div>
+    <h2 class="section-title">Every visit<br>starts with a <span>hello.</span></h2>
+    <p class="section-desc">
+      Visit our shop at Station Road, Bagaha 2.
+      We look forward to seeing you.
+    </p>
+    <a class="primary-btn" href="tel:8102397591">CONTACT OUR SHOP ↗</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  SHYAM BIHARI PAN DUKAN · THE TASTE OF TRADITION
+</footer>
+
+<script>
+/* INTRO PARTICLES */
+
+const particles=document.getElementById("particles");
+
+for(let i=0;i<22;i++){
+  const p=document.createElement("span");
+  p.className="particle";
+  p.style.left=Math.random()*100+"%";
+  p.style.setProperty("--d",(8+Math.random()*12)+"s");
+  p.style.animationDelay=(-Math.random()*15)+"s";
+  particles.appendChild(p);
+}
+
+/* INTRO CONTROL */
+
+const intro=document.getElementById("intro");
+let introClosed=false;
+
+function closeIntro(){
+  if(introClosed)return;
+  introClosed=true;
+  intro.classList.add("hide");
+}
+
+document.getElementById("enter").addEventListener("click",closeIntro);
+document.getElementById("skip").addEventListener("click",closeIntro);
+
+setTimeout(closeIntro,9000);
+
+/* SCROLL REVEAL */
+
+const revealItems=document.querySelectorAll(".reveal");
+
+if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12,rootMargin:"0px 0px -35px 0px"});
+
+  revealItems.forEach(el=>{
+    if(!el.classList.contains("show"))observer.observe(el);
+  });
+}else{
+  revealItems.forEach(el=>el.classList.add("show"));
+}
+
+/* SCROLL BASED SIDE LEAF MOTION */
+
+const hero=document.querySelector(".hero");
+const sideLeaves=document.querySelectorAll(".side-leaf");
+
+let ticking=false;
+
+function updateMotion(){
+  const y=window.scrollY;
+
+  sideLeaves.forEach((leaf,index)=>{
+    const speed=index===0?.10:.07;
+    leaf.style.transform=
+      `translate3d(0,${y*speed}px,0) rotate(${y*.025}deg)`;
+  });
+
+  ticking=false;
+}
+
+window.addEventListener("scroll",()=>{
+  if(!ticking){
+    requestAnimationFrame(updateMotion);
+    ticking=true;
+  }
+},{passive:true});
+
+/* BUTTON PRESS FEEDBACK */
+
+document.querySelectorAll("a").forEach(link=>{
+  link.addEventListener("touchstart",()=>{
+    link.style.transition="transform .15s";
+  },{passive:true});
+});
+</script>
+
+</body>
+</html>
